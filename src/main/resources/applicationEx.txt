@@ -1,0 +1,10 @@
+spring.application.name=turnstiles
+spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
+
+# Persistence
+spring.datasource.driverClassName=
+spring.datasource.url= 
+spring.datasource.username=
+password=
+spring.datasource.hibernate.hbm2ddl.auto=create-drop
+spring.datasource.hibernate.show_sql=true

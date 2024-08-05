@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "sping.application.acess.token",
+    "type": "java.lang.String",
+    "description": "A description for 'sping.application.token'"
+  },
+  {
+    "name": "spring.application.acess.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.application.acess.url'"
+  },
+  {
+    "name": "spring.application.acess.token",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.application.acess.token'"
+  },
+  {
+    "name": "spring.application.hostname",
+    "type": "java.lang.String",
+    "description": "Configure o hostname que será usado para o servidor, evite o local host!"
+  },
+  {
+    "name": "spring.application.port",
+    "type": "java.lang.String",
+    "description": "Adicione a porta do servidor"
+  },
+  {
+    "name": "spring.application.catraca.login",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.application.catraca.login'"
+  },
+  {
+    "name": "spring.application.catraca.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.application.catraca.password'"
+  }
+]}
