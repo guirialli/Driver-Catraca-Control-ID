@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository()
-public interface CatracaRepository extends JpaRepository<CatracaEntity, Long>{
+public interface CatracaRepository extends JpaRepository<CatracaEntity, Integer>{
 	CatracaEntity findByIp(String ip);
 }
