@@ -1,10 +1,30 @@
-spring.application.name=turnstiles
-spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
+spring.application.name=
+spring.jpa.database-platform=
+
+# Server 
+server.address= 
+server.port=
 
 # Persistence
 spring.datasource.driverClassName=
 spring.datasource.url= 
-spring.datasource.username=
-password=
-spring.datasource.hibernate.hbm2ddl.auto=create-drop
-spring.datasource.hibernate.show_sql=true
+spring.datasource.username= 
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=
+spring.jpa.show-sql=
+
+# Application
+spring.application.acess.token=
+spring.application.acess.url=
+spring.application.hostname=
+spring.application.port=
+
+# Security
+security.jwt.secret-key=
+security.jwt.expiration-time=
+security.user=
+security.password=
+
+# Catraca
+spring.application.catraca.login=
+spring.application.catraca.password=
