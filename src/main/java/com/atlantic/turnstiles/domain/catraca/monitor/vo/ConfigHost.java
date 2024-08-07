@@ -1,4 +1,4 @@
-package com.atlantic.turnstiles.domain.monitor.vo;
+package com.atlantic.turnstiles.domain.catraca.monitor.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,4 +1,4 @@
-package com.atlantic.turnstiles.domain.monitor;
+package com.atlantic.turnstiles.domain.catraca.monitor;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.atlantic.turnstiles.common.http.ApiConsumerCatraca;
 import com.atlantic.turnstiles.domain.catraca.CatracaService;
-import com.atlantic.turnstiles.domain.monitor.vo.ConfigHost;
-import com.atlantic.turnstiles.domain.monitor.vo.ConfigMonitor;
+import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigHost;
+import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigMonitor;
 
 @Service()
 public class MonitorService {

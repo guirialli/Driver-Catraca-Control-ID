@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 import com.atlantic.turnstiles.domain.catraca.CatracaEntity;
 import com.atlantic.turnstiles.domain.catraca.CatracaRepository;
-import com.atlantic.turnstiles.domain.monitor.MonitorService;
-import com.atlantic.turnstiles.domain.monitor.vo.ConfigHost;
+import com.atlantic.turnstiles.domain.catraca.monitor.MonitorService;
+import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigHost;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
