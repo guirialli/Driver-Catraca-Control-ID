@@ -79,7 +79,7 @@ public class BootCatraca implements ApplicationRunner {
 				throw new IllformedLocaleException("Invalid token: verify your token!");
 			}
 		} catch (IOException e) {
-			System.err.printf("Falha ao se conectar ao servidor %s!\n%s\n", url, e.getMessage());
+			System.err.printf("Falha ao se conectar ao servidor %s!\n", url);
 		}
 	}
 

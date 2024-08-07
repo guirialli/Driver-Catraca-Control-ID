@@ -37,6 +37,10 @@ public class ApiConsumerCatraca {
 		return response;
 
 	}
+	
+	public HttpResponse<String> post(String url, String session) throws IOException, InterruptedException {
+		return this.post(url + "?session=" + session);
+	}
 
 	public HttpResponse<String> post(String url, String session, Object body) throws IOException, InterruptedException {
 		return this.post(url + "?session=" + session, body);
