@@ -131,7 +131,3 @@ Para mais informações ou suporte, entre em contato com a equipe de desenvolvim
 - Email: ricamarsantana@gmail.com
 
 Obrigado por utilizar e contribuir para este projeto open-source!
-
-```
-
-Esse README reflete o uso do Java 22 e inclui instruções detalhadas para configuração, uso e contribuição. Ajuste conforme necessário para se adequar às especificidades do seu projeto e às necessidades da sua equipe.
