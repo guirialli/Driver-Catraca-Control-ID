@@ -1,6 +1,8 @@
 package com.atlantic.turnstiles.domain.catraca.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +28,8 @@ public class ActionService {
 			throw new InvalidTurnstilesParam("O parametro da catraca precisa ser clockwise, both, ou, anticlockwise");
 		parameters = "allow=" + parameters;
 
-		ActionData[] actionData = new ActionData[1];
-		actionData[1] = new ActionData(action, parameters);
+		List<ActionData> actionData = new ArrayList<>();
+		actionData.add( new ActionData(action, parameters));
 		var actions = new ActionsData(actionData);
 
 		var session = catracaService.login(ip);
