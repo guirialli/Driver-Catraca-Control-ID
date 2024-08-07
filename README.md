@@ -1,6 +1,5 @@
-Ótimo! Vou atualizar o README para refletir o uso do Java 22. Aqui está a versão ajustada:
+# Driver Catraca Control ID
 
-```markdown
 # Microserviço de Comunicação com a Catraca Control ID
 
 Este projeto é um microserviço desenvolvido em Java 22 para integrar e comunicar com a catraca Control ID. Embora tenha sido desenvolvido para atender às necessidades da Atlantic Nickel, o projeto é open-source e está licenciado sob a [Licença GPL](LICENSE).
