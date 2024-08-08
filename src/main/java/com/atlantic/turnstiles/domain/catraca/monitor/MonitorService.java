@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.atlantic.turnstiles.common.http.ApiConsumerCatraca;
 import com.atlantic.turnstiles.domain.catraca.CatracaService;
+import com.atlantic.turnstiles.domain.catraca.log.LogService;
+import com.atlantic.turnstiles.domain.catraca.monitor.vo.CatracaEvent;
 import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigHost;
 import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigMonitor;
 
@@ -14,10 +16,13 @@ import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigMonitor;
 public class MonitorService {
 
 	@Autowired
-	ApiConsumerCatraca consumer;
+	private ApiConsumerCatraca consumer;
 
 	@Autowired
-	CatracaService catracaService;
+	private CatracaService catracaService;
+
+	@Autowired
+	private LogService logService;
 
 	public void configureCatraca(String catracasIp, ConfigHost cfg) throws IOException, InterruptedException {
 		String session = catracaService.login(catracasIp);
@@ -29,6 +34,12 @@ public class MonitorService {
 		} finally {
 			catracaService.logout(catracasIp, session);
 		}
+	}
+
+	public void alterLog(String ip, CatracaEvent catraca) {
+		var log = logService.findByIp(ip);
+		log.concluiu(catraca.event().time(), catraca.event().name().equals("GIVE UP"));
+		logService.update(log);
 	}
 
 }

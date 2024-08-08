@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atlantic.turnstiles.common.exception.InvalidTurnstilesParam;
 import com.atlantic.turnstiles.domain.catraca.action.dto.RequestBodyCatracaLiberar;
+import com.atlantic.turnstiles.domain.catraca.log.LogService;
 
 import jakarta.validation.Valid;
 
@@ -21,9 +22,14 @@ public class ActionController {
 	@Autowired
 	private ActionService actionService;
 	
+	@Autowired
+	private LogService logService;
+	
 	@PostMapping("/liberar")
 	public ResponseEntity<Object> liberar(@RequestBody @Valid RequestBodyCatracaLiberar body) throws InvalidTurnstilesParam, InterruptedException, IOException{
 		actionService.liberarCatraca(body.ip(), body.action(), body.parameters());
+		logService.saveLog(body.ip(), body.movimentacao());
 		return ResponseEntity.status(200).build();
+		
 	}
 }

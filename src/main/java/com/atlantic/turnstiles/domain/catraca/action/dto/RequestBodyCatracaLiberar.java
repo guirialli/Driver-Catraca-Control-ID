@@ -1,10 +1,13 @@
 package com.atlantic.turnstiles.domain.catraca.action.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record RequestBodyCatracaLiberar(
 		@NotBlank @Pattern(regexp = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$") String ip,
-		@NotBlank String action, @NotBlank String parameters ) {
+		@NotBlank String action, @NotBlank String parameters, @NotNull @JsonProperty("movimentacao") MovimentacaoData movimentacao) {
 
 }
