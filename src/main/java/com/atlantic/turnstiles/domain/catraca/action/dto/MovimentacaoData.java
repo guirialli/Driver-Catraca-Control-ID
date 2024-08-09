@@ -5,6 +5,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record MovimentacaoData(@NotNull @NotBlank String uidQrcode, @NotNull @NotBlank String idCracha,
 		@NotNull @NotBlank String codigo, @NotNull @NotBlank String data, @NotNull @NotBlank String status,
-		@NotNull Integer idDevice, @NotNull @NotBlank String sentido) {
+		@NotNull Integer idDevice, @NotNull @NotBlank String sentido, String dt_acesso, Boolean st_acess) {
 
 }
