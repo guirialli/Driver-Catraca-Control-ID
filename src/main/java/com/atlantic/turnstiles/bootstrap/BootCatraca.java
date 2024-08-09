@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.atlantic.turnstiles.domain.catraca.CatracaEntity;
 import com.atlantic.turnstiles.domain.catraca.CatracaRepository;
+import com.atlantic.turnstiles.domain.catraca.CatracaService;
 import com.atlantic.turnstiles.domain.catraca.monitor.MonitorService;
 import com.atlantic.turnstiles.domain.catraca.monitor.vo.ConfigHost;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +31,10 @@ public class BootCatraca implements ApplicationRunner {
 	private CatracaRepository repository;
 
 	@Autowired
-	private MonitorService service;
+	private MonitorService  monitorService;
+	
+	@Autowired
+	private CatracaService catracaService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -65,8 +69,9 @@ public class BootCatraca implements ApplicationRunner {
 					if (c.catracaIp() != null) {
 						repository.save(new CatracaEntity(c.catracaIp()));
 						try {
-							service.configureCatraca(c.catracaIp(), 
+							monitorService.configureCatraca(c.catracaIp(), 
 									new ConfigHost(hostname, "5000", port, "api/notifications"));
+							catracaService.systemTimeConfig(c.catracaIp());
 						} catch (Exception e) {
 							System.out.println("Falha para configurar a catraca: " + c.catracaIp());
 							System.out.println(e.getMessage());
@@ -79,7 +84,7 @@ public class BootCatraca implements ApplicationRunner {
 				throw new IllformedLocaleException("Invalid token: verify your token!");
 			}
 		} catch (IOException e) {
-			System.err.printf("Falha ao se conectar ao servidor %s!\n%s\n", url, e.getMessage());
+			System.err.printf("Falha ao se conectar ao servidor %s!\n", url);
 		}
 	}
 

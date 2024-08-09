@@ -1,7 +1,5 @@
 package com.atlantic.turnstiles.config.security;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests((auth) -> auth.requestMatchers("/api/notifications/**").permitAll()
-				.requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated()).httpBasic(withDefaults())
+				.requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
 				.csrf(csrf -> csrf.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider)

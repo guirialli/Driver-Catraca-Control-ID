@@ -1,5 +1,6 @@
 package com.atlantic.turnstiles.config.handlers;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.atlantic.turnstiles.common.exception.CannotEditPropsException;
+import com.atlantic.turnstiles.common.exception.InvalidTurnstilesParam;
 import com.atlantic.turnstiles.common.exception.PermissionDeniedException;
 import com.atlantic.turnstiles.common.http.ResponseError;
 
@@ -24,14 +26,24 @@ public class GlobalHandlerException {
 		return this.mountResponse(status, message);
 	}
 
+	@ExceptionHandler(InvalidTurnstilesParam.class)
+	public ResponseEntity<ResponseError> handleInvalidTurnstilesParam(InvalidTurnstilesParam ex) {
+		return this.mountResponse(400, ex.getMessage());
+	}
+	
+	@ExceptionHandler(IOException.class)
+	public ResponseEntity<ResponseError> hanldeIOException(IOException ex) {
+		return this.mountResponse(400, ex.getMessage());
+	} 
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+ 	public ResponseEntity<ResponseError> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+		return this.mountResponse(400, ex.getMessage());
+	}
+
 	@ExceptionHandler(BadCredentialsException.class)
 	public ResponseEntity<ResponseError> handleBadCredentialsException(BadCredentialsException ex) {
 		return this.mountResponse(401, ex.getMessage());
-	}
-
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<ResponseError> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-		return this.mountResponse(400, ex.getMessage());
 	}
 
 	@ExceptionHandler(PermissionDeniedException.class)
