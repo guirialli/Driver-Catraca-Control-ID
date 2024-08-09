@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LogRepository  extends JpaRepository<Log, String>{
 	
-	@Query("SELECT l FROM Log l WHERE l.end = true")
+	@Query("SELECT l FROM Log l WHERE l.end = true AND l.sync = false")
 	public List<Log> findAllEnded();
 	
 	@Query("SELECT l FROM Log l WHERE l.end = false and l.ip = :ip")

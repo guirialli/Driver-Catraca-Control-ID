@@ -67,6 +67,9 @@ public class Log {
 
 	@Column(nullable = false)
 	private Boolean end = false;
+	
+	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+	private Boolean sync = false;
 
 	@Column
 	private String dt_acesso;

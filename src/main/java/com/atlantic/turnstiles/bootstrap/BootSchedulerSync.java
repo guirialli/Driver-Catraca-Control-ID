@@ -57,7 +57,8 @@ public class BootSchedulerSync implements ApplicationRunner {
 							
 							if(response.statusCode() < 200 || response.statusCode() >= 300)
 								throw new RuntimeException("Erro ao salvar no sigacess: " + response.body());
-							repository.delete(l);
+							l.setSync(true);
+							repository.save(l);
 							
 
 						} catch (Exception e) {
